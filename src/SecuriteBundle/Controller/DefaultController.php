@@ -8,10 +8,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/connexion")
      */
-    public function indexAction()
+    public function connexionAction()
     {
-        return $this->render('SecuriteBundle:Default:index.html.twig');
+        return $this->render('securite/connexion.html.twig');
+    }
+
+    /**
+     * @Route("/inscription")
+     */
+    public function inscriptionAction()
+    {
+        return $this->render('securite/inscription.html.twig');
     }
 }
