@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Recettes list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Ingredient</th>
+                <th>Saveur</th>
+                <th>Maniere</th>
+                <th>Temps</th>
+                <th>Niveau</th>
+                <th>Valide</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recette in recettes %}
+            <tr>
+                <td><a href="{{ path('dashboard_recette_show', { 'id': recette.id }) }}">{{ recette.id }}</a></td>
+                <td>{{ recette.titre }}</td>
+                <td>{{ recette.image }}</td>
+                <td>{{ recette.description }}</td>
+
+                {% for ingredient_element in recette.ingredient %}
+                    <td>{{ ingredient_element }}</td>
+                {% endfor %}
+
+                {% for saveur_element in recette.saveur %}
+                    <td>{{ saveur_element }}</td>
+                {% endfor %}
+
+                <td>{{ recette.maniere }}</td>
+                <td>{{ recette.temps }}</td>
+                <td>{{ recette.niveau }}</td>
+                <td>{% if recette.valide %}Yes{% else %}No{% endif %}</td>
+                <td>{% if recette.status %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('dashboard_recette_show', { 'id': recette.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dashboard_recette_edit', { 'id': recette.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('dashboard_recette_new') }}">Create a new recette</a>
+        </li>
+    </ul>
+{% endblock %}
