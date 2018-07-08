@@ -1,0 +1,82 @@
+<nav id="navtop">
+    <div class="container-fluid">
+        <!--header navbar top left -->
+
+        <ul class="nav navbar-nav" id="nav-left">
+            <li>
+                <a href="{{ path("homepage") }}" id="site_name">C'est du Chinois</a>
+            </li>
+            <li class="li-left">
+                <a href="#">
+                    <i class="fa fa-history" aria-hidden="true"><span> Histoire</span></i>
+                </a>
+            </li>
+            <li class="li-left">
+                <a href="province.php">
+                    <i class="fa fa-globe" aria-hidden="true"><span> Géographie</span></i>
+                </a>
+            </li>
+            <li class="li-left">
+                <a href="#">
+                    <i class="fa fa-map-signs" aria-hidden="true"><span> Notions</span></i>
+                </a>
+            </li>
+            <li class="li-left-hidden">
+                <a href="#">
+                    <i class="fa fa-search" aria-hidden="true"><span> Rechercher</span></i>
+                </a>
+            </li>
+
+
+            {% if app.user %}
+                <li class="li-left-hidden">
+                    <a href="">
+                        <i class="fa fa-user-circle" aria-hidden="true"><span> Hi, </span></i>
+                    </a>
+                </li>
+            {% else %}
+                <li class="li-left-hidden">
+                    <a href="">
+                        <i class="fa fa-user" aria-hidden="true"><span> login </span></i>
+                    </a>
+                </li>
+            {% endif %}
+
+        </ul>
+
+
+        <ul class="nav navbar-nav" id="nav-right">
+            <li>
+                <a href="#">
+                    <i class="fa fa-search" aria-hidden="true"><span> Rechercher</span></i>
+                </a>
+            </li>
+            {% if app.user %}
+                <li>
+                    <a href="">
+                        <i class="fa fa-user-circle" aria-hidden="true"><span> Hi,  </span></i>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="">
+                        <i class="fa fa-user" aria-hidden="true"><span> login </span></i>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+
+    </div>
+</nav>
+<!--
+<form action="" autocomplete="off" class="form-horizontal" method="post" accept-charset="utf-8">
+    <div class="input-group">
+        <input name="searchtext" value="" class="form-control" type="text">
+        <span class="input-group-btn">
+           <button class="btn btn-default" type="submit" id="addressSearch">
+               <span class="icon-search"></span>
+           </button>
+        </span>
+    </div>
+</form>
+-->
